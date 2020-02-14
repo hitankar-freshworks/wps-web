@@ -30,5 +30,12 @@ pipeline {
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci DEBUG='*' && ./npmw run build -- --pr=${CHANGE_ID} --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
             }
         }
+        stage('Deploy (DEV)') {
+            agent { label 'deploy' }
+            steps {
+                echo "Deploying ..."
+                sh "cd .pipeline && ./npmw ci && ./npmw run deploy -- --pr=${CHANGE_ID} --env=dev --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
+            }
+        }
     }
 }

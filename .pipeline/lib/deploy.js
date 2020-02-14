@@ -17,7 +17,7 @@ module.exports = (settings)=>{
   var objects = []
 
   // The deployment of your cool app goes here ▼▼▼
-  objects.push(... oc.processDeploymentTemplate(`${templatesLocalBaseUrl}/deployment.yaml`, {
+  objects.push(... oc.processDeploymentTemplate(`${templatesLocalBaseUrl}/deploy.yaml`, {
     'param':{
       'NAME': 'wfss-pointid-api',
       'SUFFIX': phases[phase].suffix,

@@ -11,19 +11,19 @@ parameters:
   - name: DOCKER_REGISTRY
     required: true
 objects:
-# - apiVersion: v1
-#   data:
-#     Caddyfile: |
-#       0.0.0.0:8080
-#       root /var/www/html
-#       log stdout
-#       errors stdout    
-#   kind: ConfigMap
-#   metadata:
-#     creationTimestamp: null
-#     name: caddyfile-${NAME}${SUFFIX}
-#     labels:
-#       app: ${NAME}${SUFFIX}
+- apiVersion: v1
+  data:
+    Caddyfile: |
+      0.0.0.0:8080
+      root /var/www/html
+      log stdout
+      errors stdout    
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: null
+    name: caddyfile-${NAME}${SUFFIX}
+    labels:
+      app: ${NAME}${SUFFIX}
 - apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:

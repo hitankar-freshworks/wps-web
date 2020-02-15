@@ -8,8 +8,8 @@ parameters:
   - name: TAG
     value: latest
     description: The output image tag beig deployed
-#  - name: DOCKER_REGISTRY
-#    required: true
+  - name: DOCKER_REGISTRY
+    required: true
 objects:
 # - apiVersion: v1
 #   data:
@@ -56,7 +56,8 @@ objects:
       spec:
         automountServiceAccountToken: false
         containers:
-          - image: docker-registry.default.svc:5000/auzhsi-tools/wps-web:latest
+          #- image: docker-registry.default.svc:5000/auzhsi-tools/wps-web:latest
+          - image: ${DOCKER_REGISTRY}/${NAME}:${TAG}
             imagePullPolicy: Always
             name: wps-web
             args:

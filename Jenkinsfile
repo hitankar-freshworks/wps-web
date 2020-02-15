@@ -27,6 +27,7 @@ pipeline {
                     abortAllPreviousBuildInProgress(currentBuild)
                 }
                 echo "Building ..."
+                sh "curl -X POST -H 'Content-Type: application/json' --data '{\"text\":\"${MODULE_NAME} is building. \"}' https://chat.pathfinder.gov.bc.ca/hooks/7A8RwRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri"
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci DEBUG='*' && ./npmw run build -- --pr=${CHANGE_ID} --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
             }
         }

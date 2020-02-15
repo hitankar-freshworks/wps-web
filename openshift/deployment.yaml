@@ -31,7 +31,7 @@ objects:
       openshift.io/generated-by: OpenShiftNewBuild
     creationTimestamp: null
     labels:
-      app: wps-web
+      app: ${NAME}${SUFFIX}
     name: ${NAME}
   spec:
     lookupPolicy:
@@ -48,7 +48,7 @@ objects:
     replicas: 1
     selector:
       matchLabels:
-        app: wps-web
+        app: ${NAME}${SUFFIX}
     template:
       metadata:
         labels:

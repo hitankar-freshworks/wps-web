@@ -17,9 +17,9 @@ module.exports = (settings)=>{
   var objects = []
 
   // The deployment of your cool app goes here ▼▼▼
-  objects.push(... oc.processDeploymentTemplate(`${templatesLocalBaseUrl}/deploy.yaml`, {
+  objects.push(... oc.processDeploymentTemplate(`${templatesLocalBaseUrl}/deployment.yaml`, {
     'param':{
-      'NAME': 'wfss-pointid-api',
+      'NAME': 'wps-web',
       'SUFFIX': phases[phase].suffix,
       'TAG': phases[phase].tag,
       'DOCKER_REGISTRY': `docker-registry.default.svc:5000/${phases[phase].namespace}`

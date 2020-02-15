@@ -2,9 +2,9 @@
 const options= require('pipeline-cli').Util.parseArguments()
 const changeId = options.pr //aka pull-request
 const version = '1.0.0'
-const name = 'wfss-pointid-api'
+const name = 'wps-web'
 
-Object.assign(options.git, {owner: 'WFSS', repository: 'wfss-pointid-api'})
+Object.assign(options.git, {owner: 'bcgoc', repository: 'wps-web'})
 
 const phases = {
   build: {namespace:'auzhsi-tools'    , name: `${name}`, phase: 'build'  , changeId:changeId, suffix: `-build-${changeId}`  , instance: `${name}-build-${changeId}`  , version:`${version}-${changeId}`, tag:`build-${version}-${changeId}`},

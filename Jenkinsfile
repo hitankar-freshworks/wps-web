@@ -27,7 +27,7 @@ pipeline {
                     abortAllPreviousBuildInProgress(currentBuild)
                 }
                 echo "Building ..."
-                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4E3XoK2sri -d '{\"text\":\"Building wps-web for PR-${CHANGE_ID}.\"}'"
+                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri -d '{\"text\":\"Building wps-web for PR-${CHANGE_ID}.\"}'"
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci DEBUG='*' && ./npmw run build -- --pr=${CHANGE_ID} --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
             }
         }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo "Deploying ..."
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci && ./npmw run deploy -- --pr=${CHANGE_ID} --env=dev --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
-                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4E3XoK2sri -d '{\"text\":\"Deployed wps-web to DEV for PR-${CHANGE_ID}.\"}'"
+                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri -d '{\"text\":\"Deployed wps-web to DEV for PR-${CHANGE_ID}.\"}'"
             }
         }
     }

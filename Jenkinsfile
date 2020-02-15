@@ -27,7 +27,7 @@ pipeline {
                     abortAllPreviousBuildInProgress(currentBuild)
                 }
                 echo "Building ..."
-                sh "curl -X POST -H 'Content-Type: application/json' --data '{\"text\":\"wps-web is building for PR-${CHANGE_ID}. \"}' https://chat.pathfinder.gov.bc.ca/hooks/7A8RwRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri"
+                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4E3XoK2sri -d '{\"text\":\"Building wps-web for PR-${CHANGE_ID}.\"}'"
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci DEBUG='*' && ./npmw run build -- --pr=${CHANGE_ID} --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
             }
         }
@@ -35,9 +35,8 @@ pipeline {
             agent { label 'deploy' }
             steps {
                 echo "Deploying ..."
-                sh "curl -X POST -H 'Content-Type: application/json' --data '{\"text\":\"wps-web is getting deployed to DEV for PR-${CHANGE_ID}. \"}' https://chat.pathfinder.gov.bc.ca/hooks/7A8RwRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri"
                 sh "cd .pipeline && chmod +x npmw && ./npmw ci && ./npmw run deploy -- --pr=${CHANGE_ID} --env=dev --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
-                sh "curl -X POST -H 'Content-Type: application/json' --data '{\"text\":\"wps-web is deployed to DEV for PR-${CHANGE_ID}. \"}' https://chat.pathfinder.gov.bc.ca/hooks/7A8RwRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri"
+                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4E3XoK2sri -d '{\"text\":\"Deployed wps-web to DEV for PR-${CHANGE_ID}.\"}'"
             }
         }
     }

@@ -39,5 +39,21 @@ pipeline {
                 sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri -d '{\"text\":\"Deployed wps-web to DEV for PR-${CHANGE_ID}.\"}'"
             }
         }
+        stage('Deploy (PROD)') {
+            agent { label 'deploy' }
+            when {
+                expression { return env.CHANGE_TARGET == 'master';}
+                beforeInput true
+            }
+            input {
+                message "Should we continue with deployment to PROD?"
+                ok "Yes!"
+            }
+            steps {
+                echo "Deploying ..."
+                sh "cd .pipeline && chmod +x npmw && ./npmw ci && ./npmw run deploy -- --pr=${CHANGE_ID} --env=prod --git.branch.name=${CHANGE_BRANCH} --git.branch.merge=${CHANGE_BRANCH} --git.branch.remote=${CHANGE_BRANCH} --git.url=${GIT_URL} --git.change.target=${CHANGE_TARGET}"
+                sh "curl -X POST -H \"Content-Type: application/json\" https://chat.pathfinder.gov.bc.ca/hooks/7A8RwSpZPDAqc6uXS/z8nRXX43oifYWELkwJKeLj4e86rtyfvtJdqdvjSE3XoK2sri -d '{\"text\":\"Deployed wps-web to PROD for PR-${CHANGE_ID}.\"}'"
+            }
+        }
     }
 }

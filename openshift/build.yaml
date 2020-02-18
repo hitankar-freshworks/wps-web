@@ -123,7 +123,7 @@ objects:
       images:
         - from:
             kind: ImageStreamTag
-            name: wps-web-build:latest
+            name: wps-web-build:${TAG}
           paths:
             - destinationDir: './'
               sourcePath: /opt/app-root/src/build

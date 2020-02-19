@@ -9,7 +9,7 @@ parameters:
   - name: GIT_URL
     value: https://github.com/bcgov/wps-web.git
   - name: GIT_REF
-    value: nkuruba-master
+    value: master
 labels:
   app.kubernetes.io/part-of: 'wps-web'
 objects:

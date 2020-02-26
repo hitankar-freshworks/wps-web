@@ -11,6 +11,7 @@ import { WeatherStationsDropdown } from 'features/fwiCalculator/components/Stati
 import { ActionButtons } from 'features/fwiCalculator/components/ActionButtons'
 import { TimeRangeTextfield } from 'features/fwiCalculator/components/TimeRangeTextfield'
 import { PercentileTextfield } from 'features/fwiCalculator/components/PercentileTextfield'
+import { CalculationDocumentation } from 'features/fwiCalculator/components/CalculationDocumentation'
 import {
   fetchPercentiles,
   resetPercentilesResult
@@ -85,6 +86,8 @@ export const FWICalculatorPage = () => {
             )
           })}
         </div>
+
+        <CalculationDocumentation />
       </Container>
     </>
   )

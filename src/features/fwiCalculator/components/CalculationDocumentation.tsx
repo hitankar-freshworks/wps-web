@@ -21,7 +21,7 @@ export const CalculationDocumentation = () => {
       disabled
       variant="outlined"
       InputProps={{
-        readOnly: true,
+        readOnly: true
       }}
       label="How Are These Values Calculated?"
       defaultValue="Daily weather data for the fire season (May 1 - August 31) for the years 2010-2019 is collected for each of the selected weather stations. 

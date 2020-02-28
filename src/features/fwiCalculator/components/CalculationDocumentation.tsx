@@ -23,7 +23,10 @@ export const CalculationDocumentation = () => {
   const classes = useStyles()
 
   return (
-    <Card className={classes.root} id="documentation-card" data-testid="documentation-card">
+    <Card 
+      className={classes.root} 
+      id="documentation-card" 
+      data-testid="documentation-card">
       <CardContent>
         <Typography className={classes.title}>
           How Are These Values Calculated?

@@ -7,7 +7,6 @@ import { Container } from 'components/Container'
 import { fetchStations } from 'features/fwiCalculator/slices/stationsSlice'
 import { WeatherStationsDropdown } from 'features/fwiCalculator/components/StationsDropdown'
 import { PercentileTextfield } from 'features/fwiCalculator/components/PercentileTextfield'
-import { CalculationDocumentation } from 'features/fwiCalculator/components/CalculationDocumentation'
 import {
   fetchPercentiles,
   resetPercentilesResult

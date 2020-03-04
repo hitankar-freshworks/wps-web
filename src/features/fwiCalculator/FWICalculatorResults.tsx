@@ -6,7 +6,7 @@ import { selectPercentilesReducer } from 'app/rootReducer'
 import { PercentileMeanResultTable } from 'features/fwiCalculator/components/PercentileMeanResultTable'
 import { PercentileStationResultTable } from 'features/fwiCalculator/components/PercentileStationResultTable'
 import { ErrorMessage } from 'components/ErrorMessage'
-import { CalculationDocumentation } from './components/CalculationDocumentation'
+import { CalculationDocumentation } from 'features/fwiCalculator/components/CalculationDocumentation'
 
 const useStyles = makeStyles({
   stations: {

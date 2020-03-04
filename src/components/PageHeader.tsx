@@ -21,7 +21,7 @@ export const PageHeader = () => {
         <a href="https://www2.gov.bc.ca">
           <img
             className={classes.logo}
-            src={process.env.PUBLIC_URL + '/images/bcid-logo-rev-en.svg'}
+            src={process.env.PUBLIC_URL + '/images/logo-banner.svg'}
             alt="B.C. Government logo"
           />
         </a>

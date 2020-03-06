@@ -6,7 +6,7 @@ import { selectPercentilesReducer } from 'app/rootReducer'
 import { PercentileMeanResultTable } from 'features/fwiCalculator/components/PercentileMeanResultTable'
 import { PercentileStationResultTable } from 'features/fwiCalculator/components/PercentileStationResultTable'
 import { ErrorMessage } from 'components/ErrorMessage'
-import { CalculationDocumentation } from './components/CalculationDocumentation'
+import { PercentileCalcDocumentation } from './components/PercentileCalcDocumentation'
 
 const useStyles = makeStyles({
   stations: {
@@ -50,7 +50,7 @@ export const FWICalculatorResults = () => {
     <div data-testid="percentile-result-tables">
       <div className={classes.stations}>{stationResults}</div>
       <PercentileMeanResultTable meanValues={result.mean_values} />
-      <CalculationDocumentation />
+      <PercentileCalcDocumentation />
     </div>
   )
 }

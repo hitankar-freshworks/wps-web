@@ -19,15 +19,11 @@ const useStyles = makeStyles({
   }
 })
 
-export const CalculationDocumentation = () => {
+export const PercentileCalcDocumentation = () => {
   const classes = useStyles()
 
   return (
-    <Card
-      className={classes.root}
-      id="documentation-card"
-      data-testid="documentation-card"
-    >
+    <Card className={classes.root} data-testid="percentile-documentation-card">
       <CardContent>
         <Typography className={classes.title}>
           How Are These Values Calculated?

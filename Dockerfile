@@ -18,5 +18,4 @@ COPY . .
 USER 1001
 
 EXPOSE 3000
-
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "serve"]

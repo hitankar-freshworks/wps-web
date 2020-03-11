@@ -10,7 +10,7 @@ jobs:
         - name: Use Pipeline Action
           uses: bcgov/openshift-launchpad-deployment@github-action
           with:
-            MODE: server
+            MODE: client
             AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
             NAMESPACE: apdwlc-test
             APP_NAME: wps-web-pr${{ github.event.number }}

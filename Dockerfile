@@ -1,9 +1,16 @@
 FROM node:10
 
-# Set working directory
-RUN mkdir /usr/src/app
 
-WORKDIR /usr/src/app
+# Set working directory
+ENV APP_ROOT=/opt/client
+RUN mkdir ${APP_ROOT}
+
+WORKDIR ${APP_ROOT}
+
+# permissions
+RUN chmod -R u+x ${APP_ROOT} && \
+    chgrp -R 0 ${APP_ROOT} && \
+    chmod -R g=u ${APP_ROOT} /etc/passwd
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./

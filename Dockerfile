@@ -14,6 +14,9 @@ RUN npm set progress=false && npm ci --no-cache
 # Copy the contents of the project to the image
 COPY . .
 
+# Build the source
+RUN npm run build
+
 # Use generic non-root user
 USER 1001
 

@@ -11,6 +11,8 @@ RUN npm set progress=false && npm ci --no-cache
 
 USER 1001
 
+RUN npm run build
+
 # Copy the contents of the project to the image
 COPY . .
 

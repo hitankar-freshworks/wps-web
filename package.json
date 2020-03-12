@@ -25,11 +25,9 @@
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
     "react-scripts": "3.3.1",
-    "typescript": "^3.7.5",
-    "serve": "^11.3.0"
+    "typescript": "^3.7.5"
   },
   "scripts": {
-    "serve": "serve -p 3000 -s build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "DEBUG_PRINT_LIMIT=10000 react-scripts test",

@@ -9,6 +9,8 @@ COPY package*.json ./
 ## Install only the packages defined in the package-lock.json (faster than the normal npm install)
 RUN npm set progress=false && npm ci --no-cache
 
+USER 1001
+
 # Copy the contents of the project to the image
 COPY . .
 
